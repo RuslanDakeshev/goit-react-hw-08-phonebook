@@ -4,6 +4,7 @@ import { UserAuthMenu } from './UserAuthMenu/UserAuthMenu';
 import { useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/auth-selectors';
 import { Outlet } from 'react-router-dom';
+import { ParticlesContainer } from './Background/Background';
 
 export const Layout = () => {
   const token = useSelector(selectToken);

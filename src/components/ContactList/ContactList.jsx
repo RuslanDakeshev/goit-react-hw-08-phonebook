@@ -20,6 +20,8 @@ import {
 import { selectFilter } from 'redux/filter/filter-selector';
 import { useEffect } from 'react';
 
+import { Fade } from "react-awesome-reveal";
+
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
@@ -38,14 +40,18 @@ export const ContactList = () => {
   return (
     <Contacts>
       {isLoading && <h1>LOADING...</h1>}
-      {filteredContacts.map(({ name, phone, id }) => (
+      {filteredContacts.map(({ name, number, id }) => (
+        
         <ContactsItem key={id}>
+          <Fade direction='down' >
           <Name>{name}</Name>
-          <Number>{phone}</Number>
+          <Number>{number}</Number>
           <Btn type="button" onClick={() => dispatch(deleteContacts(id))}>
             Delete
-          </Btn>
-        </ContactsItem>
+            </Btn>
+            </Fade>
+          </ContactsItem>
+          
       ))}
       {error && <p>{error.message}</p>}
     </Contacts>

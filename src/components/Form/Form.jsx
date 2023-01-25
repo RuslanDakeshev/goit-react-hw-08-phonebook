@@ -51,7 +51,7 @@ const isExist = contacts.find(
       return
     }
 
-    const contact = { name, phone };
+    const contact = { name,number: phone };
     dispatch(addContacts(contact));
 
     // onSubmit({ name, number })

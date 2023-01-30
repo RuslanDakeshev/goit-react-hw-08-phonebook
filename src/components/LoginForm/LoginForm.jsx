@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/auth-operations';
+import { ModalChakra } from 'components/Chakra/ModalChakra';
+import { Input,Flex,Heading,Button } from '@chakra-ui/react';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const [password, setPassword] = useState('');
+    
 
   const dispatch = useDispatch();
 
@@ -32,26 +35,43 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
+          <Flex
+        direction={'column'}
+        background={'gray.200'}
+        p={12}
+        rounded={6}
+        position={'relative'}
+      >
+        <Heading mb={6}>Log In</Heading>
       <label>
         Email:
-        <input
+        <Input
           type="email"
           name="email"
           value={email}
           onChange={handleChange}
+          placeholder="your email"
+          variant={'filled'}
+          mb={3}
         />
       </label>
       <label>
         Password:
-        <input
+        <Input
           type="password"
           name="password"
           value={password}
           onChange={handleChange}
+          placeholder="***********"
+          variant={'filled'}
+          mb={6}
         />
       </label>
-      <button>Login</button>
+              <Button colorScheme={'teal'} type="submit">
+                Log In
+            </Button>
+              </Flex>
     </form>
   );
 };

@@ -1,16 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
+import { Flex,Button } from '@chakra-ui/react';
 
 export const AuthNavigation = () => {
-    return (
-        <nav>
-            <ul>
-                <li>
-                    <Link to = 'register'>Register</Link>
-                </li>
-                <li>
-                    <Link to = 'login'>Login</Link>
-                </li>
-            </ul>
-        </nav>
-    )
-}
+  return (
+    <nav>
+      <ul>
+        <Flex justifyContent="end" alignItems="center" gap='2'>
+          <li>
+            <Button colorScheme='teal' size='sm'><Link to='register'>Register</Link></Button>
+          </li>
+          <li>
+            <Button colorScheme='teal' size='sm'><Link to="login">Login</Link></Button>
+          </li>
+        </Flex>
+      </ul>
+    </nav>
+  );
+};

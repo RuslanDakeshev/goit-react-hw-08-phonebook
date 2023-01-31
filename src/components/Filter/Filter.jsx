@@ -1,9 +1,11 @@
 
 import { useDispatch} from "react-redux"
 
-import { Wrapper, Label, Input } from "./Filter.styled"
+import { Wrapper, Label } from "./Filter.styled"
 
 import { filterReducer } from "redux/filter/filterSlice"
+
+import { Flex, Text, Input } from "@chakra-ui/react"
 
 
 export const Filter = () => {
@@ -12,13 +14,21 @@ export const Filter = () => {
 
 
   return (
+    <Flex align="center" justify="center">
     <Wrapper>
-      <Label >Find contacts by name</Label>
-      <Input type="text" name='filter' pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+      <Text
+  fontSize="4xl"
+  fontWeight="extrabold"
+  
+  >Find contacts by name</Text>
+      <Input variant={'filled'}
+            mb={6} type="text" name='filter' pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         onChange={e => dispatch(filterReducer(e.target.value))}
       required />
-    </Wrapper>)
+      </Wrapper>
+      </Flex>
+      )
 }
 
 

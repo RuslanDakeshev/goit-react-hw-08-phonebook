@@ -17,8 +17,10 @@ export const Layout = () => {
       <Navigation />
               {token ? <UserAuthMenu /> : <AuthNavigation />}
           </header>
-          <main>
-            <Outlet/>  
+      <main>
+        <Box bg='teal.400' mt='10' >
+          <Outlet />  
+          </Box>
       </main>
       <Divider />
       <footer>

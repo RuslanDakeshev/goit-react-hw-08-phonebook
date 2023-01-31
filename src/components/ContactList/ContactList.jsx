@@ -20,7 +20,16 @@ import {
 import { selectFilter } from 'redux/filter/filter-selector';
 import { useEffect } from 'react';
 
-import { Fade } from "react-awesome-reveal";
+import { Fade } from 'react-awesome-reveal';
+import {
+  Box,
+  Flex,
+  FormControl,
+  DeleteIcon,
+  IconButton,
+  Button,
+  Text,
+} from '@chakra-ui/react';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -38,23 +47,54 @@ export const ContactList = () => {
   );
 
   return (
-    <Contacts>
+    <Box>
       {isLoading && <h1>LOADING...</h1>}
       {filteredContacts.map(({ name, number, id }) => (
-        
-        <ContactsItem key={id}>
-          <Fade direction='down' >
-          <Name>{name}</Name>
-          <Number>{number}</Number>
-          <Btn type="button" onClick={() => dispatch(deleteContacts(id))}>
-            Delete
-            </Btn>
-            </Fade>
-          </ContactsItem>
-          
+        <Fade direction="down">
+          <Box
+            border="1px"
+            borderColor="gray.200"
+            boxShadow="dark-lg"
+            p="6"
+            rounded="md"
+            bgGradient="linear(to-r, green.200, pink.500)"
+            mb="5"
+          >
+            <Flex
+              justifyContent="space-around"
+              alignItems="center"
+              gap="2"
+              key={id}
+            >
+              <Text
+                bgGradient="linear(to-l, #7928CA, #FF0080)"
+                bgClip="text"
+                fontSize="xl"
+                fontWeight="extrabold"
+              >
+                {name}
+              </Text>
+              <Text
+                bgGradient="linear(to-l, #7928CA, #FF0080)"
+                bgClip="text"
+                fontSize="xl"
+                fontWeight="extrabold"
+              >
+                {number}
+              </Text>
+              <Button
+                colorScheme={'teal'}
+                type="button"
+                onClick={() => dispatch(deleteContacts(id))}
+              >
+                Delete
+              </Button>
+            </Flex>
+          </Box>
+        </Fade>
       ))}
       {error && <p>{error.message}</p>}
-    </Contacts>
+    </Box>
   );
 };
 

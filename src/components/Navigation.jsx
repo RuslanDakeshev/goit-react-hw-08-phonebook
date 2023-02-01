@@ -10,7 +10,7 @@ import { Button,Flex,Box} from '@chakra-ui/react';
 export const Navigation = () => {
   const token = useSelector(selectToken);
   return (
-    
+    <Box >
     <nav>
       {/* <Header/> */}
       
@@ -31,6 +31,7 @@ export const Navigation = () => {
           </Flex>
         </ul>
         
-    </nav>
+      </nav>
+      </Box>
   );
 };

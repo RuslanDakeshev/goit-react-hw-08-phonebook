@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts-selector';
 
+
 import { Input, Button, Stack } from '@chakra-ui/react';
 
 
@@ -100,8 +101,10 @@ const isExist = contacts.find(
               alignItems="center"
   height='48px'
   width='200px'
-  border='2px' size='lg'colorScheme='teal' type="submit" onClick={e => e.target.blur()}>Add contact</Button>
+        border='2px' size='lg' colorScheme='teal' type="submit" onClick={e => e.target.blur()}>Add contact</Button>
+     
     </Container>
+    
   );
 };
 

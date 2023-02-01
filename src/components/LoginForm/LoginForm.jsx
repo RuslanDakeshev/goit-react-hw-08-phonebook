@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/auth-operations';
 import { ModalChakra } from 'components/Chakra/ModalChakra';
-import { Input,Flex,Heading,Button } from '@chakra-ui/react';
+import { Input, Flex, Heading, Button } from '@chakra-ui/react';
+
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -36,6 +37,7 @@ export const LoginForm = () => {
 
   return (
       <form onSubmit={handleSubmit}>
+         
           <Flex
         direction={'column'}
         background={'gray.200'}

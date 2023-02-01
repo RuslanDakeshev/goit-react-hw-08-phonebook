@@ -42,6 +42,7 @@ import { PrivateRoute } from 'HOCs/PrivateRoute';
 import { PublicRoute } from 'HOCs/PublicRoute';
 import { useSelector } from 'react-redux';
 import { selectIsFetchingCurrentUser } from 'redux/auth/auth-selectors';
+import { BgParticles } from './Background/Background';
 
 import { Fade } from 'react-awesome-reveal';
 import { Header } from './Chakra/HeaderChakra';
@@ -197,13 +198,14 @@ export const App = () => {
             }}
         /> */}
 
-      <Fade cascade>
+      {/* <Fade cascade>
         <p>I enter first...</p>
         <p>...then comes my turn...</p>
         <p>...and finally you see me!</p>
-      </Fade>
+      </Fade> */}
+     
       <ChakraProvider theme={theme}>
-        <Box as="header" py={2} px="15" bg="tomato">
+        <Box as="header" py={2} px="15" bgGradient='linear(to-r, green.200, pink.500)'>
           <Container maxW="container.lg">
             {/* <Header />
       <Container maxW='container.lg'>
@@ -258,6 +260,7 @@ export const App = () => {
           </Container>
         </Box>
       </ChakraProvider>
+       
     </>
   );
 };

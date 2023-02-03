@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { filterReducer } from 'redux/filter/filterSlice';
 
-import { Flex, Text, Input } from '@chakra-ui/react';
+import { Flex, Input } from '@chakra-ui/react';
 
 export const Filter = () => {
   const dispatch = useDispatch();

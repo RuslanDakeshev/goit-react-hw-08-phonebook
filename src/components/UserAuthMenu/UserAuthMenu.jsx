@@ -1,7 +1,7 @@
 import { useDispatch,useSelector } from "react-redux";
 import { logout } from "redux/auth/auth-operations";
 import { selectName } from "redux/auth/auth-selectors";
-import { Flex,Button,Text,Heading } from "@chakra-ui/react";
+import { Flex,Button,Heading } from "@chakra-ui/react";
 
 export const UserAuthMenu = () => {
     const dispatch = useDispatch()

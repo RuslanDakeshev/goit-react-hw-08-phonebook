@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts-selector';
 
-import { Input, Button, Stack, Box, Flex, Container } from '@chakra-ui/react';
+import { Input, Button, Box, Flex, Container } from '@chakra-ui/react';
 
 export const Form = () => {
   const [name, setName] = useState('');

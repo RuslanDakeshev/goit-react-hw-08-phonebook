@@ -43,19 +43,13 @@ import { PublicRoute } from 'HOCs/PublicRoute';
 import { useSelector } from 'react-redux';
 import { selectIsFetchingCurrentUser } from 'redux/auth/auth-selectors';
 
-import { ModalChakra } from './Chakra/ModalChakra';
+
 import {
   extendTheme,
   ChakraProvider,
   Container,
   Box,
-  Heading,
-  Divider,
-  Flex,
-  Image,
-  Spacer,
-  ButtonGroup,
-  Button,
+  
 } from '@chakra-ui/react';
 
 export const App = () => {

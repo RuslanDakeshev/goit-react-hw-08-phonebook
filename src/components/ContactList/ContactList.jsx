@@ -20,9 +20,7 @@ import { Fade } from 'react-awesome-reveal';
 import {
   Box,
   Flex,
-  FormControl,
-  DeleteIcon,
-  IconButton,
+  
   Button,
   Text,Grid
 } from '@chakra-ui/react';

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/auth-operations';
 
-import { ModalChakra } from 'components/Chakra/ModalChakra';
-import { Input, Heading, Button, Box, Flex } from '@chakra-ui/react';
+
+import { Input, Heading, Button, Flex } from '@chakra-ui/react';
 
 export const RegisterForm = () => {
   const [name, setName] = useState('');

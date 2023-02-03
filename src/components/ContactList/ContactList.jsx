@@ -15,7 +15,7 @@ import { selectFilter } from 'redux/filter/filter-selector';
 import { useEffect } from 'react';
 
 import { Fade } from 'react-awesome-reveal';
-import { Box, Flex, IconButton, Text, Grid } from '@chakra-ui/react';
+import { Box, Flex, IconButton, Text, Grid, Spinner } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 
 export const ContactList = () => {
@@ -36,7 +36,14 @@ export const ContactList = () => {
   return (
     <Flex justifyContent="space-around" alignItems="flex-end">
       <Grid templateColumns="repeat(3, 1fr)" gap={4}>
-        {isLoading && <h1>LOADING...</h1>}
+        {isLoading && <Spinner
+  thickness='4px'
+  speed='0.65s'
+  emptyColor='gray.200'
+  color='blue.500'
+          size='xl'
+          
+/>}
         {filteredContacts.map(({ name, number, id }) => (
           <Fade direction="up">
             <Box

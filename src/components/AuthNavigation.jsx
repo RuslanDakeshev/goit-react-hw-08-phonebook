@@ -5,12 +5,12 @@ export const AuthNavigation = () => {
   return (
     <nav>
       <ul>
-        <Flex justifyContent="end"  gap='2' mb={'10'} >
+        <Flex flexDirection={'column'}  alignItems="start" justifyContent="end"  gap='2' mt={'10px'} >
           <li>
-            <Button colorScheme='teal' size='sm'><Link to='register'>Register</Link></Button>
+            <Button colorScheme='teal' size='sm' w={'100px'}><Link to='register'>Register</Link></Button>
           </li>
           <li>
-            <Button colorScheme='teal' size='sm'><Link to="login">Login</Link></Button>
+            <Button colorScheme='teal' size='sm' w={'100px'}><Link to="login">Login</Link></Button>
           </li>
         </Flex>
       </ul>

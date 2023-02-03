@@ -1,11 +1,5 @@
 import PropTypes from 'prop-types';
-import {
-  Btn,
-  Contacts,
-  ContactsItem,
-  Name,
-  Number,
-} from './ContactList.styled';
+
 import { useDispatch } from 'react-redux';
 import {
   deleteContacts,
@@ -54,7 +48,7 @@ export const ContactList = () => {
 
   return (
     <Flex justifyContent="space-around"
-              alignItems="center">
+              alignItems="flex-end">
       <Grid templateColumns='repeat(3, 1fr)' gap={4}>
       {isLoading && <h1>LOADING...</h1>}
       {filteredContacts.map(({ name, number, id }) => (

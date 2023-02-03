@@ -33,7 +33,7 @@ export const Layout = () => {
       </Box>
 
       <main>
-        <Box pb={'30px'}>
+        <Box pb={'30px'} flexDirection={'column'}>
           
           <Outlet />
         </Box>
@@ -52,7 +52,7 @@ export const Layout = () => {
         
       >
         <Box pb="20px" pt={30} display="flex" justifyContent="flex-end">
-          Phonebook. Created by Ruslan. 2023
+          Phonebook. Created by Ruslan Dakeshev. 2023
         </Box>
       </Box>
     </Box>

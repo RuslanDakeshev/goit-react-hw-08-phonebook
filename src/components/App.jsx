@@ -21,13 +21,13 @@
 //   );
 // };
 
-import { Form } from '../components/Form/Form';
-import { Filter } from 'components/Filter/Filter';
-import { ContactList } from 'components/ContactList/ContactList';
-import { Title, Subtitle } from './App.styled';
-import { RegisterForm } from './RegisterForm/RegisterForm';
-import { LoginForm } from './LoginForm/LoginForm';
-import { UserAuthMenu } from './UserAuthMenu/UserAuthMenu';
+// import { Form } from '../components/Form/Form';
+// import { Filter } from 'components/Filter/Filter';
+// import { ContactList } from 'components/ContactList/ContactList';
+// import { Title, Subtitle } from './App.styled';
+// import { RegisterForm } from './RegisterForm/RegisterForm';
+// import { LoginForm } from './LoginForm/LoginForm';
+// import { UserAuthMenu } from './UserAuthMenu/UserAuthMenu';
 
 import { Routes, Route } from 'react-router-dom';
 import { HomePage } from 'pages/HomePage';
@@ -42,11 +42,7 @@ import { PrivateRoute } from 'HOCs/PrivateRoute';
 import { PublicRoute } from 'HOCs/PublicRoute';
 import { useSelector } from 'react-redux';
 import { selectIsFetchingCurrentUser } from 'redux/auth/auth-selectors';
-import { BgParticles } from './Background/Background';
 
-import { Fade } from 'react-awesome-reveal';
-import { Header } from './Chakra/HeaderChakra';
-import { CardListChakra } from './Chakra/CardListChakra';
 import { ModalChakra } from './Chakra/ModalChakra';
 import {
   extendTheme,
@@ -61,10 +57,6 @@ import {
   ButtonGroup,
   Button,
 } from '@chakra-ui/react';
-
-import { useCallback } from 'react';
-import Particles from 'react-particles';
-import { loadFull } from 'tsparticles';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -84,30 +76,14 @@ export const App = () => {
     },
   });
 
-
   return (
     <>
-      
-     
       <ChakraProvider theme={theme}>
-        <Container maxW="100%" pl={'0'} pr='0'>
-          
-        <Box as="header" 
-          // bgGradient='linear(to-r, green.200, pink.500)'
-        >
-          
-            {/* <Header />
-      <Container maxW='container.lg'>
-        <Box py='2' px='15'>
-          <Heading size='xl'>
-            Hello in USER'S APP!
-          </Heading>
-        </Box>
-        <Divider />
-        <CardListChakra cards={titles} />
-        <ModalChakra/>
-        
-      </Container> */}
+        <Container maxW="100%" pl={'0'} pr="0">
+          <Box
+            as="header"
+            // bgGradient='linear(to-r, green.200, pink.500)'
+          >
             {!isFetchingCurrentUser && (
               <Routes>
                 <Route path="/" element={<Layout />}>
@@ -146,12 +122,9 @@ export const App = () => {
                 </Route>
               </Routes>
             )}
-          
           </Box>
-          
-          </Container>
+        </Container>
       </ChakraProvider>
-       
     </>
   );
 };

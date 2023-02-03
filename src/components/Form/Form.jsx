@@ -1,13 +1,12 @@
 import { useState } from 'react';
 
-import { Wrapper, Label, Btn, Container } from './Form.styled';
 import { addContacts } from 'redux/contacts/contacts-operations';
-// import { nanoid } from 'nanoid';
+
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts-selector';
 
-import { Input, Button, Stack, Box, Flex } from '@chakra-ui/react';
+import { Input, Button, Stack, Box, Flex, Container } from '@chakra-ui/react';
 
 export const Form = () => {
   const [name, setName] = useState('');
@@ -57,9 +56,21 @@ export const Form = () => {
   };
 
   return (
-    <Container onSubmit={handleSubmit}>
-      <Flex justifyContent="space-around" alignItems="center" gap="2">
-        <Label>
+    <Container
+      as={'form'}
+      margin={'auto'}
+      mb="20px"
+      p={'20'}
+      maxW="50%"
+      onSubmit={handleSubmit}
+    >
+      <Flex
+        as={'form'}
+        justifyContent="space-around"
+        alignItems="center"
+        gap="2"
+      >
+        <Box mb={'10px'} fontWeight="500" fontSize={'24'}>
           Name
           <Input
             type="text"
@@ -71,10 +82,14 @@ export const Form = () => {
             required
             variant={'filled'}
             mb={6}
+            border="1px"
+            borderColor="gray.200"
+            boxShadow="dark-lg"
+            focusBorderColor="#FFFFF"
           />
-        </Label>
+        </Box>
 
-        <Label>
+        <Box mb={'10px'} fontWeight="500" fontSize={'24'}>
           Number
           <Input
             type="tel"
@@ -86,17 +101,20 @@ export const Form = () => {
             required
             variant={'filled'}
             mb={6}
+            border="1px"
+            borderColor="gray.200"
+            boxShadow="dark-lg"
+            focusBorderColor="#FFFFF"
           />
-        </Label>
+        </Box>
       </Flex>
       <Flex justifyContent="space-around" alignItems="center">
         <Button
-          
           height="48px"
           width="200px"
           border="1px"
-            borderColor="gray.200"
-        boxShadow="dark-lg"
+          borderColor="gray.200"
+          boxShadow="dark-lg"
           size="lg"
           colorScheme="teal"
           type="submit"

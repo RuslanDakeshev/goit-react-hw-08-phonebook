@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 
-import { Wrapper, Label } from './Filter.styled';
 
 import { filterReducer } from 'redux/filter/filterSlice';
 

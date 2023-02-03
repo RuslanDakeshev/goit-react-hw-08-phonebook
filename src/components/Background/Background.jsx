@@ -27,7 +27,7 @@ export const BgParticles = () => {
             options={{
                 background: {
                     color: {
-                        value: "#bada55",
+                        value: "#FFFFF",
                     },
 
                 },
@@ -54,7 +54,7 @@ export const BgParticles = () => {
                         },
                         repulse: {
                             distance: 200,
-                            duration: 0.4,
+                            duration: 0.9,
                         },
                     },
                 },
@@ -79,7 +79,7 @@ export const BgParticles = () => {
                             default: "bounce",
                         },
                         random: false,
-                        speed: 2,
+                        speed: 1,
                         straight: false,
                     },
                     number: {

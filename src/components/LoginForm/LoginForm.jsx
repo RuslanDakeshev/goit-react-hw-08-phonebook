@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/auth-operations';
 
 import { Input, Flex, Heading, Button } from '@chakra-ui/react';
-import { BgParticles } from 'components/Background/Background';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -35,8 +34,7 @@ export const LoginForm = () => {
   };
 
   return (
-      <form onSubmit={handleSubmit}>
-          
+    <form onSubmit={handleSubmit}>
       <Flex justifyContent="space-around" alignItems="center">
         <Flex
           direction={'column'}
@@ -75,8 +73,7 @@ export const LoginForm = () => {
             Log In
           </Button>
         </Flex>
-          </Flex>
-          
+      </Flex>
     </form>
   );
 };

@@ -10,7 +10,7 @@ export const UserAuthMenu = () => {
   return (
       <>
           <Flex justifyContent='center'>
-              <Heading size='lg' fontSize='40px'>{`Welcome, ${name}!`}</Heading>
+              <Heading as='h1' size='xl' mb='30' textAlign='center' bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'>{`Welcome, ${name}!`}</Heading>
               </Flex>
           <Flex justifyContent='end' >
               <Button colorScheme='teal' size='sm' mb={'10'}><button onClick={() => dispatch(logout())} >Logout</button>

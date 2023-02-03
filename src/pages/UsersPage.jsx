@@ -1,7 +1,7 @@
 import { ContactList } from "components/ContactList/ContactList";
 import { Filter } from "components/Filter/Filter";
 import { Form } from '../components/Form/Form';
-import { BgParticles } from "components/Background/Background";
+
 
 export const UsersPage = () => {
     return (
@@ -10,7 +10,7 @@ export const UsersPage = () => {
             <ContactList />
             <Filter />
             <Form />
-            <BgParticles/>
+            
         </>
     )
 }

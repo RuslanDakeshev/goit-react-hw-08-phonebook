@@ -84,129 +84,18 @@ export const App = () => {
     },
   });
 
-  const titles = [
-    {
-      userId: 1,
-      id: 1,
-      title:
-        'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-      body: 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
-    },
-    {
-      userId: 1,
-      id: 2,
-      title: 'qui est esse',
-      body: 'est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla',
-    },
-    {
-      userId: 1,
-      id: 3,
-      title: 'ea molestias quasi exercitationem repellat qui ipsa sit aut',
-      body: 'et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut',
-    },
-  ];
-
-  // const particlesInit = useCallback(async engine => {
-
-  //       // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-  //       // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-  //       // starting from v2 you can add only the features you need reducing the bundle size
-  //       await loadFull(engine);
-  //   }, []);
-
-  //   const particlesLoaded = useCallback(async container => {
-
-  //   }, []);
 
   return (
     <>
-      {/* <Particles
-            id="tsparticles"
-            init={particlesInit}
-            loaded={particlesLoaded}
-            options={{
-                background: {
-                    color: {
-                        value: "#0d47a1",
-                    },
-                },
-                fpsLimit: 120,
-                interactivity: {
-                    events: {
-                        onClick: {
-                            enable: true,
-                            mode: "push",
-                        },
-                        onHover: {
-                            enable: true,
-                            mode: "repulse",
-                        },
-                        resize: true,
-                    },
-                    modes: {
-                        push: {
-                            quantity: 4,
-                        },
-                        repulse: {
-                            distance: 200,
-                            duration: 0.4,
-                        },
-                    },
-                },
-                particles: {
-                    color: {
-                        value: "#ffffff",
-                    },
-                    links: {
-                        color: "#ffffff",
-                        distance: 150,
-                        enable: true,
-                        opacity: 0.5,
-                        width: 1,
-                    },
-                    collisions: {
-                        enable: true,
-                    },
-                    move: {
-                        directions: "none",
-                        enable: true,
-                        outModes: {
-                            default: "bounce",
-                        },
-                        random: false,
-                        speed: 6,
-                        straight: false,
-                    },
-                    number: {
-                        density: {
-                            enable: true,
-                            area: 800,
-                        },
-                        value: 80,
-                    },
-                    opacity: {
-                        value: 0.5,
-                    },
-                    shape: {
-                        type: "circle",
-                    },
-                    size: {
-                        value: { min: 1, max: 5 },
-                    },
-                },
-                detectRetina: true,
-            }}
-        /> */}
-
-      {/* <Fade cascade>
-        <p>I enter first...</p>
-        <p>...then comes my turn...</p>
-        <p>...and finally you see me!</p>
-      </Fade> */}
+      
      
       <ChakraProvider theme={theme}>
-        <Box as="header" py={2} px="15" bgGradient='linear(to-r, green.200, pink.500)'>
-          <Container maxW="container.lg">
+        <Container maxW="100%" pl={'0'} pr='0'>
+          
+        <Box as="header" 
+          // bgGradient='linear(to-r, green.200, pink.500)'
+        >
+          
             {/* <Header />
       <Container maxW='container.lg'>
         <Box py='2' px='15'>
@@ -257,8 +146,10 @@ export const App = () => {
                 </Route>
               </Routes>
             )}
+          
+          </Box>
+          
           </Container>
-        </Box>
       </ChakraProvider>
        
     </>

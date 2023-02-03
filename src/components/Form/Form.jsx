@@ -1,17 +1,13 @@
 import { useState } from 'react';
 
-
-import { Wrapper, Label,  Btn, Container } from './Form.styled';
+import { Wrapper, Label, Btn, Container } from './Form.styled';
 import { addContacts } from 'redux/contacts/contacts-operations';
 // import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts-selector';
 
-
-import { Input, Button, Stack } from '@chakra-ui/react';
-
-
+import { Input, Button, Stack, Box, Flex } from '@chakra-ui/react';
 
 export const Form = () => {
   const [name, setName] = useState('');
@@ -35,7 +31,6 @@ export const Form = () => {
     }
   };
 
-    
   const resetForm = () => {
     setName('');
     setPhone('');
@@ -44,26 +39,26 @@ export const Form = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-const isExist = contacts.find(
-      contacts  => contacts.name.toLowerCase() === name.toLowerCase()
+    const isExist = contacts.find(
+      contacts => contacts.name.toLowerCase() === name.toLowerCase()
     );
-    
+
     if (isExist) {
-       alert(`${name} is already in contacts.`);
-      resetForm()
-      return
+      alert(`${name} is already in contacts.`);
+      resetForm();
+      return;
     }
 
-    const contact = { name,number: phone };
+    const contact = { name, number: phone };
     dispatch(addContacts(contact));
 
     // onSubmit({ name, number })
-    resetForm()
+    resetForm();
   };
 
   return (
     <Container onSubmit={handleSubmit}>
-      <Wrapper>
+      <Flex justifyContent="space-around" alignItems="center" gap="2">
         <Label>
           Name
           <Input
@@ -78,9 +73,7 @@ const isExist = contacts.find(
             mb={6}
           />
         </Label>
-      </Wrapper>
 
-      <Wrapper>
         <Label>
           Number
           <Input
@@ -95,19 +88,25 @@ const isExist = contacts.find(
             mb={6}
           />
         </Label>
-      </Wrapper>
-      
-      <Button 
-              alignItems="center"
-  height='48px'
-  width='200px'
-        border='2px' size='lg' colorScheme='teal' type="submit" onClick={e => e.target.blur()}>Add contact</Button>
-     
+      </Flex>
+      <Flex justifyContent="space-around" alignItems="center">
+        <Button
+          
+          height="48px"
+          width="200px"
+          border="1px"
+            borderColor="gray.200"
+        boxShadow="dark-lg"
+          size="lg"
+          colorScheme="teal"
+          type="submit"
+          onClick={e => e.target.blur()}
+        >
+          Add contact
+        </Button>
+      </Flex>
     </Container>
-    
   );
 };
-
-
 
 export default Form;

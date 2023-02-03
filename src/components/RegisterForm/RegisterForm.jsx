@@ -39,13 +39,17 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Flex
+      <form onSubmit={handleSubmit}>
+          
+          <Flex justifyContent="space-around" alignItems="center">
+          <Flex
+              
         direction={'column'}
         background={'gray.200'}
         p={12}
         rounded={6}
-        position={'relative'}
+              position={'relative'}
+              width='600px'
       >
         <Heading mb={6}>Register</Heading>
         <label>
@@ -88,7 +92,8 @@ export const RegisterForm = () => {
         <Button colorScheme={'teal'} type="submit">
           Register
         </Button>
-      </Flex>
+              </Flex>
+              </Flex>
     </form>
   );
 };

@@ -5,7 +5,7 @@ export const AuthNavigation = () => {
   return (
     <nav>
       <ul>
-        <Flex justifyContent="end" alignItems="center" gap='2'>
+        <Flex justifyContent="end"  gap='2' mb={'10'} >
           <li>
             <Button colorScheme='teal' size='sm'><Link to='register'>Register</Link></Button>
           </li>

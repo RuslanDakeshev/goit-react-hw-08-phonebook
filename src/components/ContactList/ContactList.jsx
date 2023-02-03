@@ -33,6 +33,8 @@ import {
   Text,Grid
 } from '@chakra-ui/react';
 
+
+
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
@@ -51,11 +53,12 @@ export const ContactList = () => {
   
 
   return (
-    <Box>
-      <Grid templateColumns='repeat(2, 1fr)' gap={4}>
+    <Flex justifyContent="space-around"
+              alignItems="center">
+      <Grid templateColumns='repeat(3, 1fr)' gap={4}>
       {isLoading && <h1>LOADING...</h1>}
       {filteredContacts.map(({ name, number, id }) => (
-        <Fade direction="down">
+        <Fade direction="up">
           <Box
             border="1px"
             borderColor="gray.200"
@@ -104,7 +107,7 @@ export const ContactList = () => {
       ))}
       {error && <p>{error.message}</p>}
       </Grid>
-    </Box>
+    </Flex>
   );
 };
 

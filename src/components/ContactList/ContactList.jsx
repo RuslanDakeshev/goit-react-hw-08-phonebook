@@ -14,18 +14,9 @@ import {
 import { selectFilter } from 'redux/filter/filter-selector';
 import { useEffect } from 'react';
 
-
-
 import { Fade } from 'react-awesome-reveal';
-import {
-  Box,
-  Flex,
-  
-  Button,
-  Text,Grid
-} from '@chakra-ui/react';
-
-
+import { Box, Flex, IconButton, Text, Grid } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -42,62 +33,65 @@ export const ContactList = () => {
     name.toLowerCase().includes(filter)
   );
 
-  
-
   return (
-    <Flex justifyContent="space-around"
-              alignItems="flex-end">
-      <Grid templateColumns='repeat(3, 1fr)' gap={4}>
-      {isLoading && <h1>LOADING...</h1>}
-      {filteredContacts.map(({ name, number, id }) => (
-        <Fade direction="up">
-          <Box
-            border="1px"
-            borderColor="gray.200"
-            boxShadow="dark-lg"
-            p="6"
-            rounded="md"
-            bgGradient="linear(to-r, green.200, pink.500)"
-            mb="5"
-            w="400px"
-            display={'grid'}
-              gridAutoFlow='column'
-          >
-            <Flex
-              justifyContent="space-around"
-              alignItems="center"
-              gap="2"
-              
-              key={id}
+    <Flex justifyContent="space-around" alignItems="flex-end">
+      <Grid templateColumns="repeat(3, 1fr)" gap={4}>
+        {isLoading && <h1>LOADING...</h1>}
+        {filteredContacts.map(({ name, number, id }) => (
+          <Fade direction="up">
+            <Box
+              border="1px"
+              borderColor="gray.200"
+              boxShadow="dark-lg"
+              p="6"
+              rounded="md"
+              bgGradient="linear(to-r, green.200, pink.500)"
+              mb="5"
+              w="400px"
+              display={'grid'}
+              gridAutoFlow="column"
             >
-              <Text
-                bgGradient="linear(to-l, #7928CA, #FF0080)"
-                bgClip="text"
-                fontSize="xl"
-                fontWeight="extrabold"
+              <Flex
+                justifyContent="space-around"
+                alignItems="center"
+                gap="2"
+                key={id}
               >
-                {name}
-              </Text>
-              <Text
-                bgGradient="linear(to-l, #7928CA, #FF0080)"
-                bgClip="text"
-                fontSize="xl"
-                fontWeight="extrabold"
-              >
-                {number}
-              </Text>
-              <Button
+                <Text
+                  bgGradient="linear(to-l, #7928CA, #FF0080)"
+                  bgClip="text"
+                  fontSize="xl"
+                  fontWeight="extrabold"
+                >
+                  {name}
+                </Text>
+                <Text
+                  bgGradient="linear(to-l, #7928CA, #FF0080)"
+                  bgClip="text"
+                  fontSize="xl"
+                  fontWeight="extrabold"
+                >
+                  {number}
+                </Text>
+                <IconButton
+                  colorScheme="teal"
+                  aria-label="Search database"
+                  onClick={() => dispatch(deleteContacts(id))}
+                  icon={<DeleteIcon />}
+                  textAlign='end'
+                />
+                {/* <Button
                 colorScheme={'teal'}
                 type="button"
                 onClick={() => dispatch(deleteContacts(id))}
               >
                 Delete
-              </Button>
-            </Flex>
-          </Box>
-        </Fade>
-      ))}
-      {error && <p>{error.message}</p>}
+              </Button> */}
+              </Flex>
+            </Box>
+          </Fade>
+        ))}
+        {error && <p>{error.message}</p>}
       </Grid>
     </Flex>
   );

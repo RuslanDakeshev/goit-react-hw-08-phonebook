@@ -39,9 +39,9 @@ import { fetchCurrentUser } from 'redux/auth/auth-operations';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { PrivateRoute } from 'HOCs/PrivateRoute';
-import { PublicRoute } from 'HOCs/PublicRoute';
+import { RestrictedRoute } from 'HOCs/RestrictedRoute';
 import { useSelector } from 'react-redux';
-import { selectIsFetchingCurrentUser } from 'redux/auth/auth-selectors';
+import { selectIsFetchingCurrentUser, selectIsLoggedIn } from 'redux/auth/auth-selectors';
 
 
 import {
@@ -55,6 +55,7 @@ import {
 export const App = () => {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(selectIsFetchingCurrentUser);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -84,35 +85,44 @@ export const App = () => {
                   <Route
                     index
                     element={
-                      <PublicRoute>
-                        <HomePage />
-                      </PublicRoute>
+                      <RestrictedRoute
+                      redirectTo="/contacts"
+                        component = {<HomePage />}
+                      />
                     }
                   />
                   <Route
-                    path="users"
+                    path="contacts"
                     element={
-                      <PrivateRoute>
-                        <UsersPage />
-                      </PrivateRoute>
+                      <PrivateRoute
+                        redirectTo="/login"
+                        component={<UsersPage />}
+                      />
                     }
                   />
                   <Route
                     path="register"
                     element={
-                      <PublicRoute restricted>
-                        <RegisterPage />
-                      </PublicRoute>
+                      <RestrictedRoute
+                      redirectTo="/contacts"
+                        component={<RegisterPage />}
+                      />
                     }
                   />
                   <Route
                     path="login"
                     element={
-                      <PublicRoute restricted>
-                        <LoginPage />
-                      </PublicRoute>
+                      <RestrictedRoute
+                        redirectTo="/contacts"
+                        component={<LoginPage />}
+                      />
                     }
                   />
+                  {isLoggedIn ? (
+            <Route path="*" element={<UsersPage />} />
+          ) : (
+            <Route path="*" element={<HomePage />} />
+          )}
                 </Route>
               </Routes>
             )}

@@ -24,7 +24,7 @@ export const Navigation = () => {
         {token && (
           <li>
             <Button colorScheme='teal' size='sm' w={'100px'}>
-              <NavLink to="users">Users</NavLink>
+              <NavLink to="contacts">Contacts</NavLink>
               </Button>
           </li>
           )}

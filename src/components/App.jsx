@@ -84,7 +84,7 @@ export const App = () => {
           
               <Routes>
                 <Route path="/" element={<Layout />}>
-                  <Route
+                  {/* <Route
                     index
                     element={
                       <RestrictedRoute
@@ -92,7 +92,8 @@ export const App = () => {
                         component = {<HomePage />}
                       />
                     }
-                  />
+                  /> */}
+                  <Route index element={<HomePage />} />
                   <Route
                     path="/contacts"
                     element={
@@ -120,7 +121,7 @@ export const App = () => {
                       />
                     }
                   />
-                  
+                  <Route path="*" element={<HomePage />} />
                 </Route>
               </Routes>
             

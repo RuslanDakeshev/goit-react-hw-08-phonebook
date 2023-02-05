@@ -20,14 +20,23 @@
 //   return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 // };
 
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+// import { Navigate } from 'react-router-dom';
+// import { selectIsLoggedIn,selectIsFetchingCurrentUser } from '../redux/auth/auth-selectors';
+
+// export const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
+//   const isLoggedIn = useSelector(selectIsLoggedIn);
+//   const isRefreshing = useSelector(selectIsFetchingCurrentUser);
+
+//   const shouldRedirect = !isLoggedIn && !isRefreshing;
+//   return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
+// };
+
 import { Navigate } from 'react-router-dom';
-import { selectIsLoggedIn,selectIsFetchingCurrentUser } from '../redux/auth/auth-selectors';
+import { useAuth } from 'hooks/useAuth';
 
 export const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isRefreshing = useSelector(selectIsFetchingCurrentUser);
-
+  const { isLoggedIn, isRefreshing } = useAuth();
   const shouldRedirect = !isLoggedIn && !isRefreshing;
   return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 };

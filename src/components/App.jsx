@@ -42,6 +42,7 @@ import { PrivateRoute } from 'HOCs/PrivateRoute';
 import { RestrictedRoute } from 'HOCs/RestrictedRoute';
 import { useSelector } from 'react-redux';
 import { selectIsFetchingCurrentUser, selectIsLoggedIn } from 'redux/auth/auth-selectors';
+import { useAuth } from 'hooks/useAuth';
 
 
 import {
@@ -56,6 +57,7 @@ export const App = () => {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(selectIsFetchingCurrentUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+    const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -71,7 +73,9 @@ export const App = () => {
     },
   });
 
-  return (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <>
       <ChakraProvider theme={theme}>
         <Container maxW="100%" pl={'0'} pr="0">
@@ -79,7 +83,7 @@ export const App = () => {
             as="header"
             // bgGradient='linear(to-r, green.200, pink.500)'
           >
-            {!isFetchingCurrentUser && (
+          
               <Routes>
                 <Route path="/" element={<Layout />}>
                   <Route
@@ -118,14 +122,10 @@ export const App = () => {
                       />
                     }
                   />
-                  {isLoggedIn ? (
-            <Route path="*" element={<UsersPage />} />
-          ) : (
-            <Route path="*" element={<HomePage />} />
-          )}
+                  
                 </Route>
               </Routes>
-            )}
+            
           </Box>
         </Container>
       </ChakraProvider>

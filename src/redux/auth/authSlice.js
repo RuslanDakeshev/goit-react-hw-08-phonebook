@@ -31,7 +31,7 @@ const authSlice = createSlice({
       })
 
       .addCase(fetchCurrentUser.pending, state => {
-        state.isLoggedIn = true;
+        
         state.isFetchingCurrentUser = true;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
@@ -52,7 +52,8 @@ const authSlice = createSlice({
           fetchCurrentUser.pending
         ),
         state => {
-          state.isLoggedIn = true;
+          state.isLoggedIn = false;
+
         }
       )
 
@@ -60,11 +61,11 @@ const authSlice = createSlice({
         isAnyOf(
           register.fulfilled,
           login.fulfilled,
-          logout.fulfilled,
+          
           fetchCurrentUser.fulfilled
         ),
         (state, { payload }) => {
-          state.isLoggedIn = false;
+          state.isLoggedIn = true;
           state.error = null;
         }
       )

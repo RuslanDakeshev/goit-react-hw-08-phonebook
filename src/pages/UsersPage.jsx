@@ -6,10 +6,11 @@ import { Form } from '../components/Form/Form';
 export const UsersPage = () => {
     return (
         <>
-            
-            <ContactList />
-            <Filter />
             <Form />
+             <Filter />
+            <ContactList />
+           
+            
             
         </>
     )

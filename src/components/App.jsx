@@ -40,8 +40,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { PrivateRoute } from 'HOCs/PrivateRoute';
 import { RestrictedRoute } from 'HOCs/RestrictedRoute';
-import { useSelector } from 'react-redux';
-import { selectIsFetchingCurrentUser, selectIsLoggedIn } from 'redux/auth/auth-selectors';
+
 import { useAuth } from 'hooks/useAuth';
 
 
@@ -55,8 +54,7 @@ import {
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isFetchingCurrentUser = useSelector(selectIsFetchingCurrentUser);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+ 
     const { isRefreshing } = useAuth();
 
   useEffect(() => {
